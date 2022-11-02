@@ -9,12 +9,12 @@ let timeoutID = null;
 refs.buttonStop.setAttribute('disabled', false);
 
 refs.buttonStart.addEventListener('click', () => {
-  timerID = setInterval(() => {
+  timeoutID = setInterval(() => {
     changeColor();
   }, NOTIFICATION_DELAY);
 });
 refs.buttonStop.addEventListener('click', () => {
-  clearInterval(timerID);
+  clearInterval(timeoutID);
   refs.buttonStart.removeAttribute('disabled', true);
   refs.buttonStop.setAttribute('disabled', false);
 });
