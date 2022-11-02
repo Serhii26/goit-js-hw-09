@@ -5,7 +5,7 @@ const refs = {
 };
 console.log(refs.bodyEl);
 const NOTIFICATION_DELAY = 1000;
-//  let timeoutID = null;
+let timeoutID = null;
 refs.buttonStop.setAttribute('disabled', false);
 
 refs.buttonStart.addEventListener('click', () => {
@@ -18,7 +18,7 @@ refs.buttonStop.addEventListener('click', () => {
   refs.buttonStart.removeAttribute('disabled', true);
   refs.buttonStop.setAttribute('disabled', false);
 });
-timerID = null;
+// timerID = null;
 
 function changeColor() {
   let changeStyleColor = getRandomHexColor();

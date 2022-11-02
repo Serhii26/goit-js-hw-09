@@ -31,8 +31,6 @@ const options = {
       //   if (dateV.getTime() < selectedDates[0].getTime()) { refs.buttonEl.removeAttribute('disabled', true); }
     }
 
-    
-
     const timer = {
       intervalId: null,
 
@@ -41,28 +39,16 @@ const options = {
 
         this.intervalId = setInterval(() => {
           // const currentTime = Date.now();
-                const deltaTime = selectedDates[0].getTime() - Date.now();
-                const time = convertMs(deltaTime);
-                timeUpdate(time);
-          
-          
+          const deltaTime = selectedDates[0].getTime() - Date.now();
+          const time = convertMs(deltaTime);
+          timeUpdate(time);
         }, 1000);
       },
-
-      // stop() {
-      //         if (selectedDates[0].getTime() > Date.now()) {
-      //            clearInterval(this.intervalId);
-      //         }
-      //     },
     };
-   
 
-    // timer.stop();
     refs.buttonEl.addEventListener('click', () => {
       timer.start();
     });
-
-   
   },
 };
 
