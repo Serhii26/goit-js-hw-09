@@ -12,6 +12,8 @@ const refs = {
 refs.buttonEl.setAttribute('disabled', false);
 
 console.log(refs.secondEl);
+console.log(Date.now());
+
 
 const options = {
   enableTime: true,
@@ -19,8 +21,8 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    let dateV = new Date();
-    // console.log(selectedDates[0].getTime());
+    let dateV = Date.now();
+    console.log(selectedDates[0].getTime());
     // console.log(dateV.getTime());
 
     if (Date.now() > selectedDates[0].getTime()) {
@@ -28,7 +30,9 @@ const options = {
       // console.log(Date.now());
     } else {
       refs.buttonEl.removeAttribute('disabled', true);
-      //   if (dateV.getTime() < selectedDates[0].getTime()) { refs.buttonEl.removeAttribute('disabled', true); }
+      // if (Date.now() < selectedDates[0].getTime()) {
+      //   refs.buttonEl.removeAttribute('disabled', true);
+      // }
     }
 
     const timer = {
@@ -40,8 +44,9 @@ const options = {
         this.intervalId = setInterval(() => {
           // const currentTime = Date.now();
           const deltaTime = selectedDates[0].getTime() - Date.now();
-          const time = convertMs(deltaTime);
-          timeUpdate(time);
+          const { days, hours, minutes, seconds } = convertMs(deltaTime);
+          if (seconds < 0) { return; }
+          timeUpdate({days, hours, minutes, seconds });
         }, 1000);
       },
     };
