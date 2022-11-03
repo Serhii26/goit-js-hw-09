@@ -38,7 +38,7 @@ function createPromise(position, delay) {
 
 function onResolve({ position, delay }) {
   Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-}
+};
 function onReject({ position, delay }) {
   Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-}
+};
